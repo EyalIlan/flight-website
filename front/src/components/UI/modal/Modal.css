@@ -2,12 +2,27 @@
 
 .Modal{
         width: 70%;
-        height: 40vh;
-        background-color: red;
+        /* height: 40vh; */
+        background-color: rgb(255, 255, 255);
         padding: 20px;
+        border: 2px solid black;
 }
 
 .Modal_header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.Modal button{
+    padding: 10px;
+    font-size: 18px;
+}
+
+.modal_grid{
+    margin: 20px 0;
+    grid-gap: 1.5rem;
+}
+hr{
+    margin: 10px 0;
 }

@@ -11,19 +11,18 @@ interface Props {
 const Modal: React.FC<Props> = ({ flight, isOpen }) => {
   return (
     <div className='menu_select'>
-      <div className='container'>
         <div className='Modal'>
           <div className='Modal_header'>
-            <p>{flight.ID}</p>
-            <button><i>icon return</i></button>
+            <p>Flight ID:{flight.ID}</p>
+            <button><i>close</i></button>
           </div>
+          <hr />
           {flight.Segments.map((segments) => {
             return segments.Legs.map((leg) => {
               return <ModalBody leg={leg}/>
             })
           })}
         </div>
-      </div>
     </div> 
         
   )

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios'
 import './App.css';
 import Card from './components/UI/Card/Card'
 import Navbar from './components/UI/Navbar/Navbar';
@@ -15,11 +14,12 @@ function App() {
   const [isFlightModalOpen, setIsFlightModalOpen] = useState(false);
   const [selectedFlight, SetSelectedFlight] = useState<Flight | null>()
 
-  useEffect(() => {
-    fetchFlights('1');
-  }, [])
+  // useEffect(() => {
+  //   fetchFlights('1');
+  // }, [])
 
   const fetchFlights = async (param: string) => {
+
     const flightsData = await getFilghts(param);
     if (flightsData) {
       setFilghtsData(flightsData)
@@ -27,9 +27,9 @@ function App() {
     }
   }
 
-  const handleClick = async (param: string) => {
-    await fetchFlights(param)
-  }
+  // const handleClick = async (param: string) => {
+  //   await fetchFlights(param)
+  // }
 
   const showFlightDetails = (flight: Flight) => {
     SetSelectedFlight(flight)
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="app">
-      {showFlightLists ? <FlightSelection handleSelectionClick={fetchFlights} /> :
+      { isFlightModalOpen && selectedFlight ? <Modal flight={selectedFlight} isOpen={isFlightModalOpen} />: showFlightLists ? <FlightSelection handleSelectionClick={fetchFlights} /> :
         flightsData && <>
           <Navbar flights={flightsData} setFlightsData={setFilghtsData}></Navbar>
           <div className='container'>
@@ -48,7 +48,6 @@ function App() {
               })}
             </div>
           </div>
-          {isFlightModalOpen && selectedFlight && <Modal flight={selectedFlight} isOpen={isFlightModalOpen} />}
         </>}
     </div>
   );

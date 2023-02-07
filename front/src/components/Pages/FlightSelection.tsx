@@ -12,7 +12,7 @@ const FlightSelection = ({ handleSelectionClick }: IProps) => {
         <div className='menu_select'>
             <button onClick={() => { handleSelectionClick('1') }}>Plan1</button>
             <button onClick={() => { handleSelectionClick('2') }}>Plan2</button>
-            <button onClick={() => { handleSelectionClick('3') }}>Plan2</button>
+            <button onClick={() => { handleSelectionClick('3') }}>Plan3</button>
         </div>
     )
 

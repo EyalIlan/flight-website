@@ -10,13 +10,20 @@ const ModalBody = ({ leg }: IProps) => {
 
     return (
         <div>
-            <p>{DeparturePoint ? 'Depurture' : ''}</p>
-            <p>{ArrivalPoint ? 'Arrival' : ''}</p>
-            <div>
-                <p>{FlightNumber}</p>
-                <p>{AirlineName}</p>
-                <p>{AirlineCode}</p>
-            </div>
+            <p>{DeparturePoint ? 
+            <div className='grid'>
+                <p>date: {DeparturePoint.DateTime || ArrivalPoint.DateTime}</p>
+                <p>Airport: {DeparturePoint.AirportName || ArrivalPoint.AirportName}</p>
+                <p>City: {DeparturePoint.City || ArrivalPoint.City}</p>
+            </div> : 
+            ''}
+            </p>
+            <p>{ArrivalPoint ?  <div className='grid modal_grid'>
+                <p>FlightNumber: {FlightNumber}</p>
+                <p>AirlineName: {AirlineName}</p>
+                <p>AirlineCode: {AirlineCode}</p>
+                            </div> : ''}</p>
+          
         </div>
     )
 }

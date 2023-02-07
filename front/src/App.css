@@ -8,12 +8,18 @@ h3{
   margin: 6px 0;
 }
 
+
+body{
+  font-family: sans-serif;
+}
+
 .app{
   min-height: 100vh;
-  background-image: linear-gradient(#009FFD,#2A2A72);
-  background-size: 100% 100%;
+  /* background-image: linear-gradient(#009FFD,#2A2A72); */
+  background-image: url('/public/images/skys.jpg');
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
 }
 
 .flex{

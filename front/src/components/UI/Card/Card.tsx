@@ -14,7 +14,7 @@ const Card:React.FC<Props> = ({flight}) => {
     <div className='card'>
             <div className='card_content'>
                     <h2>  {destination[0].DeparturePoint.City}  &larr;  {destination[destination.length-1].ArrivalPoint.City} </h2>
-                    <p>{flight.AveragePrice}{flight.CurrencySymbol}</p>
+                    <h3>{flight.AveragePrice}{flight.CurrencySymbol}</h3>
             </div>
     </div>
   )

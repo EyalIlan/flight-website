@@ -1,12 +1,29 @@
 
 .card{
     height: 300px;
-    border-radius: 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    background-color: rgb(75, 120, 204);
+    box-shadow: 5px 5px 5px  rgb(7, 0, 0);
+    color: white;
+}
+
+.card::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image:url('/public/images/aiplane.jpg') ;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    padding: 15px;
-    cursor: pointer;
+    opacity: 0.7;
+    z-index: -2;
 }
 
 .card_content{
@@ -18,3 +35,7 @@
 }
 
 
+.card:hover{
+    background-color: black;
+    color: white;
+}

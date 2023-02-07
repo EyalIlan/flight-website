@@ -40,8 +40,8 @@ function App() {
           <Navbar flights={flightsData} setFlightsData={setFlightFilterList}></Navbar>
           <div className='container'>
             <div className='grid'>
-              {flightFilterList?.map(flight => {
-                return <button onClick={() => { showFlightDetails(flight) }}><Card flight={flight} ></Card></button>
+              {flightFilterList?.map((flight,key) => {
+                return <button key={key} onClick={() => { showFlightDetails(flight) }}><Card flight={flight} ></Card></button>
               })}
             </div>
           </div>

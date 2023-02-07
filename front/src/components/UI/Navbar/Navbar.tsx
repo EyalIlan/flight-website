@@ -22,22 +22,35 @@ const Navbar: React.FC<Props> = ({ flights, setFlightsData }) => {
     const [stops, setStops] = useState(0)
 
     const filterFlightsClick = () => {
-        const arr = flights.filter(flight => {
 
-            if ((flight.AveragePrice > minPrice && flight.AveragePrice < maxPrice)) {
-                flight.Segments.forEach((segment) => {
-                    if (segment.Legs.length === stops) {
-                        segment.Legs.forEach((leg) => {
-                            if (company in leg) {
-                                return flight
-                            }
-                        })
+        
+
+        let arr = flights 
+        //working
+        if(minPrice > 0 && maxPrice>0){
+             arr = flights.filter(flight => {
+                if ((flight.AveragePrice > minPrice && flight.AveragePrice < maxPrice)) {
+                    
+                    return flight
+                }
+            })
+        }
+        
+        if(company !== ''){
+            arr = arr.filter(flight =>{
+                for (let index = 0; index < flight.Segments.length; index++) {
+                    for (let i = 0; i < flight.Segments[index].Legs.length; i++) {
+                        if(flight.Segments[index].Legs[i].AirlineName === company ){
+                            return  flight
+                        }
+                        
                     }
-                })
-                return flight
-            }
+                }
+               
+           })
+           
+        }
 
-        })
         setFlightsData(arr)
     }
 
@@ -55,7 +68,7 @@ const Navbar: React.FC<Props> = ({ flights, setFlightsData }) => {
                     </div>
                     <select name="" id="" onChange={(e) => { setCompany(e.target.value) }}>
                         {companys && companys.map(p => {
-                            return <option value="">{p}</option>
+                            return <option value={p}>{p}</option>
                         })}
                     </select>
                     <label htmlFor="">חברת תעופה</label>

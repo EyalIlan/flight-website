@@ -14,19 +14,25 @@ const Modal: React.FC<Props> = ({ flight, isOpen }) => {
         <div className='Modal'>
           <div className='Modal_header'>
             <p>Flight ID:{flight.ID}</p>
+            <h3>{flight.Segments.length>=2?'הלוך חזור':''}</h3>
+            <h3>{flight.Segments[0].Legs[0].DeparturePoint.City} &larr; {flight.Segments[0].Legs[flight.Segments[0].Legs.length-1].ArrivalPoint.City}</h3>
             <button onClick={() =>{isOpen(false)}}><i>close</i></button>
           </div>
           <hr />
           {flight.Segments.map((segments,index) => {
 
-            let Stops = segments.Legs.length
+      
             
             
             
 
-            return segments.Legs.map((leg) => {
+            return <>
+            { segments.Legs.map((leg) => {
               return <ModalBody leg={leg}  />
-            })
+            })}  
+            </>
+        
+            
           })}
         </div>
     </div> 

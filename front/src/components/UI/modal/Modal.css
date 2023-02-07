@@ -1,8 +1,6 @@
 
 
 .Modal{
-        width: 70%;
-        /* height: 40vh; */
         background-color: rgb(255, 255, 255);
         padding: 20px;
         border: 2px solid black;
@@ -20,9 +18,16 @@
 }
 
 .modal_grid{
-    margin: 20px 0;
-    grid-gap: 1.5rem;
+    margin: 10px 0;
+    grid-gap: 0.6rem;
 }
+
+.modal-container{
+    padding: 50px;
+    min-height:100vh;
+    margin: auto;
+}
+
 hr{
     margin: 10px 0;
 }

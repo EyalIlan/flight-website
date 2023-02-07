@@ -35,7 +35,7 @@ const Navbar: React.FC<Props> = ({ flights, setFlightsData }) => {
                 }
             })
         }
-        
+         //working
         if(company !== ''){
             arr = arr.filter(flight =>{
                 for (let index = 0; index < flight.Segments.length; index++) {
@@ -48,7 +48,15 @@ const Navbar: React.FC<Props> = ({ flights, setFlightsData }) => {
                 }
                
            })
-           
+        }
+        // filter only the fowards flight stops
+        if(stops >= 0){
+            arr = arr.filter(flight =>{
+                if(flight.Segments[0].Legs.length === stops + 1){
+                    return flight
+                }
+
+            })
         }
 
         setFlightsData(arr)

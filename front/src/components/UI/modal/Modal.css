@@ -1,0 +1,13 @@
+
+
+.Modal{
+        width: 70%;
+        height: 40vh;
+        background-color: red;
+        padding: 20px;
+}
+
+.Modal_header{
+    display: flex;
+    justify-content: space-between;
+}

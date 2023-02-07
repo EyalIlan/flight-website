@@ -1,0 +1,46 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app{
+  min-height: 100vh;
+  background-image: linear-gradient(#009FFD,#2A2A72);
+}
+
+.flex{
+  display: flex;
+}
+
+.menu_select{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu_select button{
+  padding: 50px;
+  font-size: 30px;
+  margin: 0 30px;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
+.menu_select button:hover{
+  background-color: rgb(4, 4, 128);
+}
+
+.container{
+    margin: auto;
+    width: 90%;
+    /* background-color: red; */
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 3rem;
+}

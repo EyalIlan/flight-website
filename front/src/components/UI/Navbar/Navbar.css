@@ -1,0 +1,23 @@
+
+.Navbar{
+    padding: 30px;
+    background-color: rgb(0, 81, 255);
+    opacity: 0.7;
+    margin-bottom: 30px;
+  
+}
+
+.Navbar_content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Navbar input{
+    padding: 7px;
+    width: 200px;
+}
+
+.Navbar label{
+    margin: 0 10px;
+}

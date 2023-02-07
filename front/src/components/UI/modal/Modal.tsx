@@ -9,6 +9,10 @@ interface Props {
 }
 
 const Modal: React.FC<Props> = ({ flight, isOpen }) => {
+  
+  console.log(flight);
+  
+
   return (
     <div className='modal-container'>
         <div className='Modal'>

@@ -5,7 +5,7 @@ import ModalBody from './ModalBody';
 
 interface Props {
   flight: Flight
-  isOpen: boolean
+  isOpen : React.SetStateAction<any>
 }
 
 const Modal: React.FC<Props> = ({ flight, isOpen }) => {
@@ -14,7 +14,7 @@ const Modal: React.FC<Props> = ({ flight, isOpen }) => {
         <div className='Modal'>
           <div className='Modal_header'>
             <p>Flight ID:{flight.ID}</p>
-            <button><i>close</i></button>
+            <button onClick={() =>{isOpen(false)}}><i>close</i></button>
           </div>
           <hr />
           {flight.Segments.map((segments) => {

@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="app">
-      { isFlightModalOpen && selectedFlight ? <Modal flight={selectedFlight} isOpen={isFlightModalOpen} />: showFlightLists ? <FlightSelection handleSelectionClick={fetchFlights} /> :
+      { isFlightModalOpen && selectedFlight ? <Modal flight={selectedFlight} isOpen={setIsFlightModalOpen} />: showFlightLists ? <FlightSelection handleSelectionClick={fetchFlights} /> :
         flightsData && <>
           <Navbar flights={flightsData} setFlightsData={setFilghtsData}></Navbar>
           <div className='container'>

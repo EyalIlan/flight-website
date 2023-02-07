@@ -10,8 +10,7 @@ interface Props {
 
 const Modal: React.FC<Props> = ({ flight, isOpen }) => {
   
-  console.log(flight);
-  
+  let showFlightWay = ["הלוך","חזור"]
 
   return (
     <div className='modal-container'>
@@ -23,14 +22,13 @@ const Modal: React.FC<Props> = ({ flight, isOpen }) => {
             <button onClick={() =>{isOpen(false)}}><i>close</i></button>
           </div>
           <hr />
+          
           {flight.Segments.map((segments,index) => {
 
-      
-            
-            
-            
+
 
             return <>
+            <h2>{showFlightWay[index]}</h2>
             { segments.Legs.map((leg) => {
               return <ModalBody leg={leg}  />
             })}  

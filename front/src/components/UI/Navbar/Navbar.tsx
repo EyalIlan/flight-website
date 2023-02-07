@@ -25,19 +25,17 @@ const Navbar: React.FC<Props> = ({ flights, setFlightsData }) => {
 
         
 
-        let arr = flights 
-        //working
+        let filteredFlights = flights 
         if(minPrice > 0 && maxPrice>0){
-             arr = flights.filter(flight => {
+             filteredFlights = flights.filter(flight => {
                 if ((flight.AveragePrice > minPrice && flight.AveragePrice < maxPrice)) {
                     
                     return flight
                 }
             })
         }
-         //working
         if(company !== ''){
-            arr = arr.filter(flight =>{
+            filteredFlights = filteredFlights.filter(flight =>{
                 for (let index = 0; index < flight.Segments.length; index++) {
                     for (let i = 0; i < flight.Segments[index].Legs.length; i++) {
                         if(flight.Segments[index].Legs[i].AirlineName === company ){
@@ -51,7 +49,7 @@ const Navbar: React.FC<Props> = ({ flights, setFlightsData }) => {
         }
         // filter only the fowards flight stops
         if(stops >= 0){
-            arr = arr.filter(flight =>{
+            filteredFlights = filteredFlights.filter(flight =>{
                 if(flight.Segments[0].Legs.length === stops + 1){
                     return flight
                 }
@@ -59,7 +57,7 @@ const Navbar: React.FC<Props> = ({ flights, setFlightsData }) => {
             })
         }
 
-        setFlightsData(arr)
+        setFlightsData(filteredFlights)
         resetSearchState()
     }
 
@@ -75,11 +73,11 @@ const Navbar: React.FC<Props> = ({ flights, setFlightsData }) => {
         <div className='Navbar'>
             <div className='container'>
                 <div className='Navbar_content'>
-                    <div className=''>
+                    <div className='flex'>
                         <input type='number' name='min-price' id='min-price' value={minPrice} onChange={(e) => { setMinPrice(parseInt(e.target.value)) }} />
                         <label htmlFor="min-price">מחיר מינמלי</label>
                     </div>
-                    <div className=''>
+                    <div className='flex'>
                         <input type='number' name='max-price' value={maxPrice} onChange={(e) => { setMaxPrice(parseInt(e.target.value)) }} />
                         <label htmlFor="max-price">מחיר מקסימלי</label>
                     </div>

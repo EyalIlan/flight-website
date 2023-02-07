@@ -25,10 +25,10 @@ const Modal: React.FC<Props> = ({ flight, isOpen }) => {
           
           {flight.Segments.map((segments,index) => {
 
-
-
+            
             return <>
             <h2>{showFlightWay[index]}</h2>
+            <h3>{segments.Legs.length >=1? `עצירות בדרך ${segments.Legs.length - 1}`: 'no'}</h3> 
             { segments.Legs.map((leg) => {
               return <ModalBody leg={leg}  />
             })}  
